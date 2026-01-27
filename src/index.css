@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Global Styles */
+:root {
+  scroll-behavior: smooth;
+}
+
+* {
+  @apply m-0 p-0 box-border;
+}
+
+body {
+  @apply bg-white dark:bg-slate-950 text-slate-900 dark:text-white transition-colors duration-300;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu',
+    'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+}
+
+/* Smooth Scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  @apply w-2;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-gray-100 dark:bg-slate-900;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-blue-500 dark:bg-blue-400 rounded-full hover:bg-blue-600;
+}
+
+/* Button Utilities */
+.btn {
+  @apply px-6 py-3 rounded-lg font-semibold transition-all duration-300 inline-block cursor-pointer;
+}
+
+.btn-primary {
+  @apply bg-blue-500 text-white hover:bg-blue-600 hover:shadow-lg transform hover:scale-105;
+}
+
+.btn-secondary {
+  @apply border-2 border-blue-500 text-blue-500 hover:bg-blue-50 dark:hover:bg-slate-900 transition-all duration-300;
+}
+
+/* Section Styles */
+.section {
+  @apply py-20 md:py-24 px-4 md:px-8;
+}
+
+.section-title {
+  @apply text-4xl md:text-5xl font-bold text-center mb-12 relative inline-block;
+}
+
+.section-title::after {
+  @apply absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 to-purple-500 mx-auto;
+  content: '';
+  width: 80px;
+}
+
+/* Card Hover Effects */
+.card-hover {
+  @apply transition-all duration-300 hover:shadow-xl hover:-translate-y-1;
+}
+
+/* Gradient Text */
+.gradient-text {
+  @apply bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent;
+}
+
+/* Loading Animation */
+.loading {
+  @apply animate-pulse;
+}
+
+/* Responsive Container */
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 md:px-6 lg:px-8;
+}
