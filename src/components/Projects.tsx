@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
       title: 'E-Commerce Platform',
       description:
         'Full-stack e-commerce platform with product catalog, shopping cart, and secure payment integration using Stripe.',
-      image: 'https://images.unsplash.com/photo-1491553895911-0055eca6402d?w=500&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1515165562835-c3b8c7f1a3ec?auto=format&fit=crop&w=1200&q=80',
       technologies: ['React', 'Node.js', 'MongoDB', 'Stripe'],
       github: 'https://github.com',
       live: 'https://example.com',
@@ -31,7 +31,7 @@ const Projects: React.FC = () => {
       title: 'Task Management App',
       description:
         'Collaborative task management application with real-time updates, team collaboration, and progress tracking.',
-      image: 'https://images.unsplash.com/photo-1540350881063-eb62e07e2ad3?w=500&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&w=1200&q=80',
       technologies: ['React', 'Firebase', 'Tailwind CSS', 'Framer Motion'],
       github: 'https://github.com',
       live: 'https://example.com',
@@ -41,7 +41,7 @@ const Projects: React.FC = () => {
       title: 'AI Content Generator',
       description:
         'AI-powered content generation tool leveraging OpenAI API for creating blogs, social media posts, and more.',
-      image: 'https://images.unsplash.com/photo-1677442d019cecf8f146a0fdb6aaab70?w=500&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=80',
       technologies: ['React', 'OpenAI API', 'Express', 'PostgreSQL'],
       github: 'https://github.com',
       live: 'https://example.com',
@@ -51,7 +51,7 @@ const Projects: React.FC = () => {
       title: 'Analytics Dashboard',
       description:
         'Real-time analytics dashboard with interactive charts, data visualization, and comprehensive reporting features.',
-      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1543286386-2e659306cd6c?auto=format&fit=crop&w=1200&q=80',
       technologies: ['React', 'Chart.js', 'Node.js', 'MongoDB'],
       github: 'https://github.com',
       live: 'https://example.com',
@@ -61,7 +61,7 @@ const Projects: React.FC = () => {
       title: 'Social Media App',
       description:
         'Social networking platform with user profiles, feed, messaging, and real-time notifications using WebSockets.',
-      image: 'https://images.unsplash.com/photo-1611927921440-6d4dd77d74f0?w=500&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1496307042754-b4aa456c4a2d?auto=format&fit=crop&w=1200&q=80',
       technologies: ['React', 'Node.js', 'Socket.io', 'PostgreSQL'],
       github: 'https://github.com',
       live: 'https://example.com',
@@ -71,7 +71,7 @@ const Projects: React.FC = () => {
       title: 'Weather App',
       description:
         'Beautiful weather application with real-time weather data, forecasts, and interactive weather maps.',
-      image: 'https://images.unsplash.com/photo-1446776877081-d282a0f896e2?w=500&h=300&fit=crop',
+      image: 'https://images.unsplash.com/photo-1502303756783-c1f7b2d4b8c2?auto=format&fit=crop&w=1200&q=80',
       technologies: ['React', 'OpenWeatherMap API', 'Geolocation', 'Tailwind CSS'],
       github: 'https://github.com',
       live: 'https://example.com',
