@@ -4,9 +4,6 @@ import { Mail, Github, Linkedin, Phone, Send, CheckCircle } from 'lucide-react';
 import ScrollReveal from './ScrollReveal';
 import emailjs from '@emailjs/browser';
 
-// Initialize EmailJS once
-emailjs.init(import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string);
-
 interface FormData {
   name: string;
   email: string;
@@ -20,8 +17,6 @@ const Contact: React.FC = () => {
     message: '',
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isSending, setIsSending] = useState(false);
-  const [sendError, setSendError] = useState<string | null>(null);
   const [errors, setErrors] = useState<Partial<FormData>>({});
 
   const validateForm = (): boolean => {
@@ -70,17 +65,17 @@ const Contact: React.FC = () => {
     }
 
     try {
-      setIsSending(true);
-      setSendError(null);
       await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID as string,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID as string,
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
         {
           name: formData.name,
           email: formData.email,
           message: formData.message,
+          to_email: import.meta.env.VITE_CONTACT_TO,
+          reply_to: formData.email,
         },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY as string
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       );
 
       setIsSubmitted(true);
@@ -91,9 +86,6 @@ const Contact: React.FC = () => {
       }, 3000);
     } catch (error) {
       console.error('Error submitting form:', error);
-      setSendError('Failed to send. Please try again later.');
-    } finally {
-      setIsSending(false);
     }
   };
 
@@ -208,7 +200,7 @@ const Contact: React.FC = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              {/* Success / Error Message */}
+              {/* Success Message */}
               {isSubmitted && (
                 <motion.div
                   className="mb-6 p-4 bg-green-50 dark:bg-green-900/20 border border-green-200 dark:border-green-800 rounded-lg flex items-center gap-3"
@@ -219,19 +211,6 @@ const Contact: React.FC = () => {
                   <CheckCircle className="text-green-500 flex-shrink-0" size={20} />
                   <span className="text-green-700 dark:text-green-300 font-semibold">
                     Message sent successfully!
-                  </span>
-                </motion.div>
-              )}
-
-              {sendError && (
-                <motion.div
-                  className="mb-6 p-4 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg flex items-center gap-3"
-                  initial={{ opacity: 0, y: -20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  exit={{ opacity: 0, y: -20 }}
-                >
-                  <span className="text-red-700 dark:text-red-300 font-semibold">
-                    {sendError}
                   </span>
                 </motion.div>
               )}
@@ -302,20 +281,12 @@ const Contact: React.FC = () => {
               {/* Submit Button */}
               <motion.button
                 type="submit"
-                disabled={isSending}
-                className={`w-full btn btn-primary flex items-center justify-center gap-2 ${isSending ? 'opacity-60 cursor-not-allowed' : ''}`}
-                whileHover={{ scale: isSending ? 1 : 1.02 }}
-                whileTap={{ scale: isSending ? 1 : 0.98 }}
+                className="w-full btn btn-primary flex items-center justify-center gap-2"
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
               >
-                {isSending ? (
-                  <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4l3-3-3-3v4a12 12 0 00-12 12h4z"></path>
-                  </svg>
-                ) : (
-                  <Send size={20} />
-                )}
-                {isSending ? 'Sending...' : 'Send Message'}
+                <Send size={20} />
+                Send Message
               </motion.button>
             </motion.form>
           </ScrollReveal>

@@ -2,6 +2,8 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ScrollReveal from './ScrollReveal';
 import { useTheme } from '../context/ThemeContext';
+import mata from '../../mata.png';
+import piyong from '../../piyong.png';
 
 const About: React.FC = () => {
   const { isDark } = useTheme();
@@ -41,10 +43,10 @@ const About: React.FC = () => {
             >
               <div className="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl">
                 <img
-                  src={isDark ? "/piyong.png" : "/mata.png"}
+                  src={isDark ? piyong : mata}
                   alt="Profile"
                   className="w-full h-full object-cover"
-                  onLoad={() => console.log(`Image loaded: ${isDark ? "piyong.png" : "mata.png"}`)}
+                  onLoad={() => console.log(`Image loaded: ${isDark ? 'piyong' : 'mata'}`)}
                   onError={(e) => {
                     const src = (e.target as HTMLImageElement).src;
                     console.error(`Image failed to load: ${src}`);
